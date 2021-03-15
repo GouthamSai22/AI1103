@@ -131,39 +131,41 @@ and latex-tikz codes from
 https://github.com/GouthamSai22/AI1103/blob/main/Assignment1/main.tex
 \end{lstlisting}
 \begin{center}
-   \textbf{Problem Statement} 
+  \section{\textbf{Problem Statement}} 
 \end{center}
 In a game, a man wins a rupee for a six and loses a rupee for any other number when a fair die is thrown. The man decided to throw a dice twice but to quit as and when he gets a six. Find the expected value of the amount he wins or loses.
 \begin{center}
-    \textbf{Solution}
+   \section{\textbf{Solution}}
 \end{center}
-Given in the problem statement, the man wins a rupee for a six and loses a rupee for any other number. In probability analysis, the expected value is calculated by multiplying each of the possible outcomes by the likelihood each outcome will occur and then summing all of those values. The possible outcomes are:
-\begin{enumerate}
-    \item He wins in his first roll and then quits.
-    \item He wins in his second roll and then quits.
-    \item He wins in his third roll and then quits.
-    \item He loses in all his rolls and then quits.
-\end{enumerate}
-The amount won/lost by the man in each of the above mentioned cases are:
-\begin{enumerate}
-    \item 1 coin won.
-    \item (-1+1 =)0 coins won.
-    \item (-1-1+1 =)1 coin lost.
-    \item (-1-1-1 =)3 coins lost.
-\end{enumerate}
-Since the person can win a round only if he rolls a six on a fair die, the probability of the man winning on any roll, P(W) = $\frac{1}{6}$ irrespective of his previous rolls.\newline
-Since winning and losing are complementary events, the probability of a man losing in a roll, P(L) = 1 - P(W) = 1 - $\frac{1}{6}$ = $\frac{5}{6}$.\newline Hence, the probabilities of occurences of the above mentioned outcomes are as follows:
-\begin{enumerate}
-    \item $\frac{1}{6}$ (Winning in first roll).
-    \item $\frac{5}{6} \times \frac{1}{6}$(losing in first roll and winning in second roll)
-    \item $\frac{5}{6} \times \frac{5}{6} \times \frac{1}{6}$(losing in first roll and losing in second roll and winning in third roll).
-    \item $\frac{5}{6} \times \frac{5}{6} \times \frac{5}{6}$(losing in first roll and losing in second roll and losing in third roll).
-\end{enumerate}
-If we denote amount gained with positive integers and amount lost with negative integers, the expected value of amount gained is:
-\begin{multline}\nonumber
-    \left(\frac{1}{6} \times 1 \right)+\left( \frac{5}{6}\times \frac{1}{6} \times 0  \right)+ \left(\frac{5}{6} \times \frac{5}{6}\times \frac{1}{6}\times (-1)  \right)+\\
-    \left( \frac{5}{6}\times \frac{5}{6}\times \frac{5}{6}\times (-3) \right)
+Let $X \epsilon \{0,1,2,3\}$ represent a random variable where
+\begin{itemize}
+    \item 0 $\rightarrow$ man wins in $1^{st}$ roll.
+    \item 1 $\rightarrow$ man wins in $2^{st}$ roll.
+    \item 2 $\rightarrow$ man wins in $3^{st}$ roll.
+    \item 3 $\rightarrow$ man lost in all 3 rolls.
+\end{itemize}
+From the given information, probability of man winning any round is $\frac{1}{6}$ and hence probability of him losing any round is $\frac{5}{6}$
+\begin{align}
+    P(X=0) &= \frac{1}{6} \\
+    P(X=1) &= \frac{5}{6} \times \frac{1}{6} \\
+    &= \frac{5}{36} \\
+    P(X=2) &= \frac{5}{6} \times \frac{5}{6} \times \frac{1}{6} \\
+     &= \frac{25}{216} \\
+    P(X=3) &= \frac{5}{6} \times \frac{5}{6} \times \frac{5}{6} \\
+     &= \frac{125}{216}
+\end{align}
+Since the man gets a rupee for every win and gives a rupee for every loss, the expected value of amount gained is
+\begin{equation}
+    Expected \ value = \sum_{i=0}^{3}P(X=i) \times (Amount \ gained \ when \ X=i)
+\end{equation}
+\begin{multline}
+    Expected \ value &= \left( \frac{1}{6} \times 1 \right) + \left( \frac{5}{36} \times 0 \right) + \left(\frac{25}{216} \times (-1) \right)\\
+    + \left(\frac{125}{216} \times (-3) \right) 
 \end{multline}
-$$\Rightarrow \textbf{-1.685}$$
-
+\begin{align}
+    Expected \ value &= \frac{1}{6} - \frac{25}{216} - \frac{375}{216} \\
+    &= \frac{-364}{216}
+    &= -1.685
+\end{align}
+  
 \end{document}
