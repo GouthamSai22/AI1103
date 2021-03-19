@@ -25,5 +25,5 @@ for i in range(simlen):
     else :
         amt_gained+=-3
 print("Average money gained by the man experimentally =",(amt_gained/simlen),end='\n')
-print("Average money gained by the man theoretically = -1.685\n")
+print("Average money gained by the man theoretically = -1.685")
 print("Since the difference in absolute values",abs((amt_gained/simlen) + 1.685),"is very small. We can say that the simulations are close to the theoretical Analysis.")
