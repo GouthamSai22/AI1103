@@ -13,17 +13,17 @@ import matplotlib.pyplot as plt
 #Sample size
 simlen = 100000
 # Generate sample
-y = np.random.randint(1,7, size=(simlen,3))
-sum = 0
+x = np.random.randint(1,7, size=(simlen,3))
+amt_gained = 0
 for i in range(simlen):
-    if y[i][0]==6 :
-        sum+=1
-    elif y[i][1]==6 :
-        sum+=0
-    elif y[i][2]==6 :
-        sum+=-1
+    if x[i][0]==6 :
+        amt_gained+=1
+    elif x[i][1]==6 :
+        amt_gained+=0
+    elif x[i][2]==6 :
+        amt_gained+=-1
     else :
-        sum+=-3
-print("Average money gained by the man experimentally =",(sum/simlen),end='\n')
-print("Average money gained by the man theoretically = -1.685")
+        amt_gained+=-3
+print("Average money gained by the man experimentally =",(amt_gained/simlen),end='\n')
+print("Average money gained by the man theoretically = -1.685\n")
 print("Since the difference in absolute values",abs((sum/simlen) + 1.685),"is very small. We can say that the simulations are close to the theoretical Analysis.")
