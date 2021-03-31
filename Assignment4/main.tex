@@ -1,0 +1,198 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+
+\usepackage{setspace}
+\usepackage{gensymb}
+\singlespacing
+\usepackage[cmex10]{amsmath}
+
+\usepackage{amsthm}
+
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{bm}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+\usepackage{paralist}
+\usepackage{longtable}
+\usepackage{multirow}
+
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{steinmetz}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{verbatim}
+\usepackage{tfrupee}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{graphicx}
+\usepackage{tkz-euclide}
+
+\usetikzlibrary{calc,math}
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+    \usepackage{lscape}     
+\usepackage{multicol}
+\usepackage{chngcntr}
+
+\DeclareMathOperator*{\Res}{Res}
+
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
+
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\begin{document}
+
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\bibliographystyle{IEEEtran}
+\raggedbottom
+\setlength{\parindent}{0pt}
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\providecommand{\abs}[1]{\vert#1\vert}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\lVert#1\rVert}
+%\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{E[ #1 ]}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\cosec}{\,\text{cosec}\,}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\numberwithin{equation}{subsection}
+\makeatletter
+\@addtoreset{figure}{problem}
+\makeatother
+\let\StandardTheFigure\thefigure
+\let\vec\mathbf
+\renewcommand{\thefigure}{\theproblem}
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+\vspace{3cm}
+\title{Assignment 4}
+\author{S Goutham Sai - CS20BTECH11042}
+\maketitle
+\newpage
+\bigskip
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+Download all python codes from 
+\begin{lstlisting}
+https://github.com/GouthamSai22/AI1103/blob/main/Assignment4/Codes
+\end{lstlisting}
+%
+and latex-tikz codes from 
+%
+\begin{lstlisting}
+https://github.com/GouthamSai22/AI1103/blob/main/Assignment4/main.tex
+\end{lstlisting}
+\section{\textbf{Problem 64 from GATE(ME) 2012}}
+An automobile plant contracted to buy shock absorbers from two suppliers X and Y. X supplies 60\% and y supplies 40\% of the shock absorbers. All shock absorbers are subjected to a quality test.The ones that pass the quality test are considered reliable. Of X's shock absorbers are 96\% are reliable. Of Y's shock absorbers 72\% are reliable The probability that a randomly chosen shock absorber which is found to be reliable is made by Y is
+\begin{enumerate}
+    \item 0.288
+    \item 0.334
+    \item 0.667
+    \item 0.720
+\end{enumerate}
+\section{\textbf{Solution}}
+Let A and B be two random variables that take values from the set \{0,1\}.\newline
+A:
+\begin{itemize}
+    \item A=0 $\rightarrow$ \text{shock absorber is from X}
+    \item A=1 $\rightarrow$ \text{shock absorber is from Y}
+\end{itemize}
+B:
+\begin{itemize}
+    \item B=0 $\rightarrow$ \text{shock absorber is not reliable}
+    \item B=1 $\rightarrow$ \text{shock absorber is reliable}
+\end{itemize}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        $x_i$ & Description & P(A=$x_i$)\\
+        \hline
+        0 & Shock absorber is from X & 0.6\\
+        1 & Shock absorber is from Y & 0.4\\
+        \hline
+    \end{tabular}
+    \caption{Values taken by X}
+    \label{tab:1}
+\end{table}
+Given,
+\begin{align}
+    \pr{B=1|A=0} &= 0.96\\
+    \pr{B=1|A=1} &= 0.72
+\end{align}
+Using the fact that \pr{E|F} = $\frac{\pr{E+F}}{\pr{F}}$,
+\begin{multline}
+    \pr{\brak{B=1}+\brak{A=0}} = \pr{B=1|A=0} \times \\
+    \pr{A=0}
+\end{multline}
+\begin{align}
+\pr{\brak{B=1}+\brak{A=0}} &= 0.576 \\
+\text{Similarly,}\label{2.0.5} \pr{\brak{B=1}+\brak{A=1}} &= 0.288 
+\end{align}
+Since the events (A=0) and (A=1) are mutually independent and mutually exhaustive, we can say that 
+\begin{multline}
+    \pr{B=1} = \pr{\brak{B=1}+\brak{A=0}} + \\
+    \pr{\brak{B=1}+\brak{A=1}}.
+\end{multline}
+\begin{equation}\label{(2.0.7)}
+    \implies \pr{B=1} = 0.864
+\end{equation}
+We need to find \pr{A=1|B=1}
+\begin{align}
+    \pr{A=1|B=1} = \frac{\pr{\brak{A=1}+\brak{B=1}}}{\pr{B=1}}
+\end{align}
+Substituting values from \eqnref{2.0.5} \eqnref{2.0.7)}, we get
+\begin{align}
+    \pr{A=1|B=1} &= \frac{0.288}{0.864} \\
+    \implies \pr{A=1|B=1} &= 0.3333333 \\
+    \implies \pr{A=1|B=1} &= 0.334
+\end{align}
+\end{document}
