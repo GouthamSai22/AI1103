@@ -1,0 +1,160 @@
+\documentclass{beamer}
+\usepackage{listings}
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\usepackage{subcaption}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+%\usetkzobj{all}
+\usetikzlibrary{calc,math}
+\usepackage{float}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\abs}[1]{\vert#1\vert}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\usepackage[export]{adjustbox}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{mhchem}
+\usetheme{Boadilla}
+
+\title{CSIR UGC NET Dec 2012 Q.103}
+\author{S.Goutham Sai}
+\institute{IITH(CSE)}
+\date{\today}
+\begin{document}
+
+
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}{Question}
+\begin{block}{CSIR UGC NET Dec 2012 Q.103}
+Let \{$X_n: n>0$\} and X be random variables defined on a common probability space. Further assume that \{$X_n \geq 0 \ \forall n > 0$\} and
+\begin{align}
+\pr{X = x} =\begin{cases}
+    p, & x = 0  \\
+    1-p, & x =1 \\
+     0, &\text{otherwise} 
+\end{cases}\end{align}
+where, $0 \leq p \leq 1$. Which of the following statements are necessarily true?
+\begin{enumerate}
+    \item If $p = 0$ and $X_n \ce{->[d]} X$, $X_n \ce{->[p]} X$ 
+    \item If $p = 1$ and $X_n \ce{->[d]} X$, then $X_n  \ce{->[p]} X$
+    \item If $0<p<1$ and $X_n \ce{->[d]} X$, then $X_n \ce{->[p]} X$
+    \item If $X_n \ce{->[p]} X$, then $X_n  \ce{->T[a.s]} X$
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}{Definitions}
+\begin{block}{Convergence in Distribution}
+    For any given sequence of real-valued random variables $X_1,X_2,X_3, \dots ,X_n$ and a random variable X, 
+    \begin{equation}
+    \lim_{n \rightarrow \infty} F_{X_n}(x) = F_X(x)
+    \end{equation}
+    where $F_{X_n}$ and $F_X$ are the cumulative probability distribution functions of $X_n$ and X respectively.
+\end{block}    
+\end{frame}
+
+\begin{frame}{Definitions}
+\begin{block}{Convergence in Probability}
+    For any given sequence of real-valued random variables $X_1,X_2,X_3, \dots ,X_n$ and a random variable X,
+    \begin{align}
+    \lim_{n \rightarrow \infty} \pr{|X_n - X| > \epsilon} = 0 \forall \epsilon > 0
+    \end{align}
+\end{block}
+\begin{block}{Almost sure Convergence}
+    For any given sequence of real-valued random variables $X_1,X_2,X_3, \dots ,X_n$ and a random variable X,
+    \begin{align}
+    \pr{\lim_{n \rightarrow \infty} X_n = X} = 1  
+    \end{align}
+\end{block}
+\end{frame}
+
+\begin{frame}{Portmanteaus Lemma}
+\begin{block}{Portmanteaus Lemma}
+    The sequence $X_1,X_2,X_3, \dots ,X_n$ converges in distribution to X if and only if
+    \begin{equation}
+    \limsup \pr{X_{n}\in F} \leq \pr{X \in F}
+    \end{equation} for every closed set F;
+\end{block}
+\end{frame}
+
+\begin{frame}{Solution}
+\begin{block}{Lemma}
+     Convergence in distribution implies convergence in probability if X is a constant.
+\end{block}
+\begin{block}{Proof}
+    \begin{itemize}
+        \item Let $\epsilon > 0$. Let X = c and the sequence $X_1,X_2,X_3, \dots ,X_n$ converges to X in distribution.
+        \item Let \begin{align}
+            &S = \{X : |X - c| > \epsilon\} \\
+            \implies &\pr{|X_n - c|>\epsilon} = \pr{X_ n\in S}
+        \end{align}
+        \end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Solution}
+\begin{block}{Proof}
+    \begin{itemize}
+        \item From Portmanteau's Lemma, 
+        \begin{align}
+           &\because \lim_{n \rightarrow \infty}X_n = c \\
+            \implies &\limsup_{n \rightarrow \infty} \pr{X_n \in S} \leq  \pr{c \in S} \\
+            &\because \pr{c \in S} = 0 \text{ (By defn)} \\
+            \implies &\limsup_{n \rightarrow \infty} \pr{X_n \in S} \leq 0 \\
+            \implies &\lim_{n \rightarrow \infty} \pr{X_n \in S} \leq 0\\
+            \implies &\lim_{n \rightarrow \infty} \pr{X_n \in S} = 0 \text{ (Probability $\geq 0$)}
+        \end{align}
+        \item Thus, by definition,
+        \begin{multline}
+             \pr{|X_n-c|> \epsilon} = 0 \text{ for any }\epsilon > 0 \text{ given,} \\    
+            \lim_{n \rightarrow \infty} F_{X_n}(x) = F_X(x)\text{ and X is constant}
+        \end{multline}
+    \end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Solution}
+\begin{block}{Checking Options}
+    \begin{enumerate}
+    \item Given,
+    \begin{align}\nonumber
+        p = 0 \implies X = 1
+    \end{align}
+    Since X is a constant, from Lemma, we can say that option 1 is true.
+    \item Given,
+      \begin{align}\nonumber
+        p = 1 \implies X = 0
+    \end{align}
+    Since X is a constant, from Lemma, we can say that option 2 is true.
+    \item Given,
+      \begin{align}\nonumber
+        0 < p < 1 \implies X \neq 0,1 
+    \end{align}
+    Since X is not a constant, we can say that option 3 is false.
+    
+    \end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}{Solution}
+\begin{block}{Checking Options}
+    \begin{enumerate}
+        \item Since Convergence in probability is weaker than Almost sure convergence, we can say that option 4 is false as a weaker statement does not imply a stronger statement. 
+    \end{enumerate}
+    Therefore, the true statements from the options are options 1 and 2.
+\end{block}    
+\end{frame}
+
+\end{document}
